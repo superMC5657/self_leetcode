@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -13,7 +14,8 @@ public:
         int len2 = pattern.size();
         if (len2 && pattern[0] == '*')
             return false;
-        vector<vector<bool>> flag(len1 + 1, vector<bool>(len2 + 1, false));
+        vector<vector<bool>> flag(static_cast<unsigned int>(len1 + 1),
+                                  vector<bool>(static_cast<unsigned int>(len2 + 1), false));
         flag[0][0] = true;
         for (int i = 1; i <= len2; ++i) {
             if (pattern[i - 1] == '*')
@@ -35,6 +37,28 @@ public:
             }
         }
         return flag[len1][len2];
+    }
+
+    bool isMatch_Recursive(string str, string pattern) {
+        int pattern_length = pattern.size();
+        int str_length = str.size();
+        if (0 == pattern_length) {
+            return str_length == 0;
+        }
+
+        bool first_match = false;
+        if (str_length > 0 && (pattern[0] == str[0] || pattern[0] == '.')) {
+            first_match = true;
+        }
+        if (pattern_length >= 2 && pattern[1] == '*') {
+            return isMatch_Recursive(str, pattern.substr(2, static_cast<unsigned int>(pattern_length - 1))) ||
+                   (first_match &&
+                    isMatch_Recursive(str.substr(1, static_cast<unsigned int>(str_length - 1)), pattern));
+        } else {
+            return first_match && isMatch_Recursive(str.substr(1, static_cast<unsigned int>(str_length - 1)),
+                                                    pattern.substr(1, static_cast<unsigned int>(pattern_length - 1)));
+
+        }
     }
 };
 
