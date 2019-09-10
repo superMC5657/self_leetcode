@@ -16,7 +16,9 @@ public:
         for (int i = 0; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
                 if (j > 1 && p[j - 1] == '*') {
-                    if (i > 0) dp[i][j] = dp[i - 1][j] && (s[i - 1] == p[j - 2] || p[j - 2] == '.');
+                    if (i > 0) {
+                        dp[i][j] = dp[i - 1][j] && (s[i - 1] == p[j - 2] || p[j - 2] == '.');
+                    }
                     dp[i][j] = dp[i][j] || dp[i][j - 2];
                 } else if (i > 0) {
                     dp[i][j] = dp[i - 1][j - 1] && (s[i - 1] == p[j - 1] || p[j - 1] == '.');
@@ -60,7 +62,9 @@ public:
         for (int i = 0; i <= str_length; i++) {
             for (int j = 1; j <= parttern_length; j++) {
                 if (j > 1 && pattern[j - 1] == '*') {
-                    if (i > 0) flag[i][j] = flag[i - 1][j] && (str[i - 1] == pattern[j - 2] || pattern[j - 2] == '.');
+                    if (i > 0) {
+                        flag[i][j] = flag[i - 1][j] && (str[i - 1] == pattern[j - 2] || pattern[j - 2] == '.');
+                    }
                     flag[i][j] = flag[i][j] || flag[i][j - 2];
                 } else if (i > 0) {
                     flag[i][j] = flag[i - 1][j - 1] && (str[i - 1] == pattern[j - 1] || pattern[j - 1] == '.');
