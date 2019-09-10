@@ -9,34 +9,21 @@ using namespace std;
 
 class Solution {
 public:
-    bool isMatch(string str, string pattern) {
-        int len1 = str.size();
-        int len2 = pattern.size();
-        if (len2 && pattern[0] == '*')
-            return false;
-        vector<vector<bool>> flag(static_cast<unsigned int>(len1 + 1),
-                                  vector<bool>(static_cast<unsigned int>(len2 + 1), false));
-        flag[0][0] = true;
-        for (int i = 1; i <= len2; ++i) {
-            if (pattern[i - 1] == '*')
-                flag[0][i] = flag[0][i - 1] || flag[0][i - 2];
-        }
-        for (int i = 1; i <= len1; ++i) {
-            for (int j = 1; j <= len2; ++j) {
-                if ((pattern[j - 1] == str[i - 1]) || (pattern[j - 1] == '.'))
-                    flag[i][j] = flag[i - 1][j - 1];
-                else if (pattern[j - 1] == '*') {
-                    if ((str[i - 1] == pattern[j - 2]) || (pattern[j - 2] == '.')) {
-                        flag[i][j] = (flag[i][j - 2] || flag[i][j - 1] || flag[i - 1][j]);
-                    } else {
-                        flag[i][j] = flag[i][j - 2];
-                    }
-                } else {
-                    flag[i][j] = false;
+    bool isMatch(string s, string p) {
+        int m = s.length(), n = p.length();
+        vector<vector<bool> > dp(m + 1, vector<bool>(n + 1, false));
+        dp[0][0] = true;
+        for (int i = 0; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (j > 1 && p[j - 1] == '*') {
+                    if (i > 0) dp[i][j] = dp[i - 1][j] && (s[i - 1] == p[j - 2] || p[j - 2] == '.');
+                    dp[i][j] = dp[i][j] || dp[i][j - 2];
+                } else if (i > 0) {
+                    dp[i][j] = dp[i - 1][j - 1] && (s[i - 1] == p[j - 1] || p[j - 1] == '.');
                 }
             }
         }
-        return flag[len1][len2];
+        return dp[m][n];
     }
 
     bool isMatch_Recursive(string str, string pattern) {
@@ -59,6 +46,28 @@ public:
                                                     pattern.substr(1, static_cast<unsigned int>(pattern_length - 1)));
 
         }
+    }
+
+    bool isMatch_DP(const string &str, const string &pattern) {
+        int parttern_length = pattern.size();
+        int str_length = str.size();
+        if (0 == parttern_length) {
+            return str_length == 0;
+        }
+        vector<vector<int >> flag(static_cast<unsigned int>(str_length + 1), vector<int>(
+                static_cast<unsigned int>(parttern_length + 1), 0));
+        flag[0][0] = 1;
+        for (int i = 0; i <= str_length; i++) {
+            for (int j = 1; j <= parttern_length; j++) {
+                if (j > 1 && pattern[j - 1] == '*') {
+                    if (i > 0) flag[i][j] = flag[i - 1][j] && (str[i - 1] == pattern[j - 2] || pattern[j - 2] == '.');
+                    flag[i][j] = flag[i][j] || flag[i][j - 2];
+                } else if (i > 0) {
+                    flag[i][j] = flag[i - 1][j - 1] && (str[i - 1] == pattern[j - 1] || pattern[j - 1] == '.');
+                }
+            }
+        }
+        return flag[str_length][parttern_length];
     }
 };
 
@@ -116,7 +125,7 @@ int fun() {
         getline(cin, line);
         string p = stringToString(line);
 
-        bool ret = Solution().isMatch(s, p);
+        bool ret = Solution().isMatch_DP(s, p);
 
         string out = boolToString(ret);
         cout << out << endl;
