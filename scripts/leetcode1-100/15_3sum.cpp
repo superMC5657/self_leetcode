@@ -5,7 +5,6 @@
  */
 #include <environment.h>
 
-
 class Solution {
 public:
     vector<vector<int>> threeSum_collisionPointer(vector<int> &nums) {
@@ -50,9 +49,12 @@ public:
         int nums_length = nums.size();
         sort(nums.begin(), nums.end());
 
-        for (int i = 0; i < nums_length; i++) {
+        for (int i = 0; i < nums_length - 2; i++) {
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;//跳过重复的;
+            }
+            if (nums[i] > 0) {
+                break;
             }
             int left = i + 1;
             int right = nums_length - 1;
