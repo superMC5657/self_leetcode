@@ -7,10 +7,31 @@
 
 class Solution {
 public:
+    Solution();
+
     ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {
         ListNode *res = new ListNode(-1);
+        ListNode *tmp = res;
+        while (l1 != nullptr && l2 != nullptr) {
+            if (l1->val <= l2->val) {
+                tmp->next = l1;
+                l1 = l1->next;
+            } else {
+                tmp->next = l2;
+                l2 = l2->next;
+            }
+            tmp = tmp->next;
+        }
+        if (l1 == nullptr) {
+            tmp->next = l2;
+        } else {
+            tmp->next = l1;
+        }
+        delete tmp;
+        return res->next;
     }
 };
+
 
 void trimLeftTrailingSpaces(string &input) {
     input.erase(input.begin(), find_if(input.begin(), input.end(), [](int ch) {

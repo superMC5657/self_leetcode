@@ -4,7 +4,7 @@
   !@fileName: main.cpp
  */
 
-#include "21_merge-two-sorted-lists.cpp"
+#include "22_generate-parentheses.cpp"
 
 int main() {
     fun();
