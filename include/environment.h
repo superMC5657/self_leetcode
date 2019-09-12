@@ -10,7 +10,9 @@
 #include <vector>
 #include <unordered_map>
 #include <sstream>
+#include <stack>
 
+using std::stack;
 using std::unordered_map;
 using std::vector;
 using std::string;
@@ -20,5 +22,15 @@ using std::cin;
 using std::to_string;
 using std::stringstream;
 using std::sort;
+
+struct ListNode {
+    int val;
+    ListNode *next;
+
+    //make me can use ListNode(5)
+    ListNode(int x) : val(x), next(nullptr) {
+
+    }
+};
 
 #endif //SELF_LEETCODE_ENVIROMENT_H
