@@ -8,8 +8,25 @@
 class Solution {
 public:
     vector<string> generateParenthesis(int n) {
-
-
+        if (n <= 0) {
+            return {};
+        } else if (n == 1) {
+            return {"()"};
+        } else {
+            vector<vector<string>> dp(n + 1);
+            dp[0] = {""};
+            dp[1] = {"()"};
+            for (int i = 2; i <= n; i++) {
+                for (int j = 0; j < i; j++) {
+                    for (string p : dp[j])
+                        for (string q : dp[i - j - 1]) { // 保证()的数量为i;
+                            string str = "(" + p + ")" + q;
+                            dp[i].push_back(str);
+                        }
+                }
+            }
+            return dp[n];
+        }
     }
 };
 
@@ -17,7 +34,7 @@ int stringToInteger(string input) {
     return stoi(input);
 }
 
-string stringVectorToString(vector<string> list, int length = -1) {
+string stringVectorToString(const vector<string> &list, int length = -1) {
     if (length == -1) {
         length = list.size();
     }
@@ -27,10 +44,10 @@ string stringVectorToString(vector<string> list, int length = -1) {
     }
 
     string result;
-    for (string str : list) {
-        result += str + ',';
+    for (int i = 0; i < length; i++) {
+        result += list[i] + ',';
     }
-    return "[" + result.substr(0, result.length() - 2) + "]";
+    return "[" + result.substr(0, result.length() - 1) + "]";
 }
 
 
