@@ -7,8 +7,6 @@
 
 class Solution {
 public:
-    Solution();
-
     ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {
         ListNode *res = new ListNode(-1);
         ListNode *tmp = res;

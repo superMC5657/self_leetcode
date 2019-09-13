@@ -6,15 +6,17 @@
 #ifndef SELF_LEETCODE_ENVIROMENT_H
 #define SELF_LEETCODE_ENVIROMENT_H
 
-#include <algorithm>
 #include <iostream>
 #include <vector>
 #include <unordered_map>
 #include <sstream>
 #include <stack>
+#include <map>
 
 using std::stack;
 using std::unordered_map;
+using std::map;
+using std::pair;
 using std::vector;
 using std::string;
 using std::cout;

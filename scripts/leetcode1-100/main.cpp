@@ -3,8 +3,7 @@
   !@author: superMC @email: 18758266469@163.com
   !@fileName: main.cpp
  */
-
-#include "22_generate-parentheses.cpp"
+#include "23_merge-k-sorted-lists.cpp"
 
 int main() {
     fun();
