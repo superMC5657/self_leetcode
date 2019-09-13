@@ -6,6 +6,7 @@
 #ifndef SELF_LEETCODE_ENVIROMENT_H
 #define SELF_LEETCODE_ENVIROMENT_H
 
+#include <algorithm>
 #include <iostream>
 #include <vector>
 #include <unordered_map>
