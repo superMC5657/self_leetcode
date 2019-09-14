@@ -6,6 +6,7 @@
 
 #include <environment.h>
 
+
 class Solution {
 public:
 
@@ -37,9 +38,9 @@ public:
         }
         int flag = 0;
         while (1) {
-            tmp->next = new ListNode(vtMap[0].second);
-            tmp = tmp->next;
             int index = vtMap[0].first;
+            tmp->next = list[index];
+            tmp = tmp->next;
             if (list[index]->next != nullptr) {
                 list[index] = list[index]->next;
                 vtMap[0].second = list[index]->val;
@@ -47,7 +48,7 @@ public:
                 flag++;
                 vtMap[0].second = INT32_MAX;
             }
-            for (int i = 1; i < list_length ; i++) {
+            for (int i = 1; i < list_length; i++) {
                 if (vtMap[i - 1].second > vtMap[i].second) {
                     int second_tmp = vtMap[i - 1].second;
                     vtMap[i - 1].first = vtMap[i].first;
@@ -64,6 +65,36 @@ public:
         }
         return res->next;
     }
+
+    struct cmp {
+        bool operator()(ListNode *l1, ListNode *l2) {
+            return l1->val > l2->val;
+        }
+    };
+
+    ListNode *mergeKLists_template(vector<ListNode *> &lists) {
+        vector<ListNode *> mergeKlist;
+        ListNode *dummy = new ListNode(-1);
+        ListNode *cur = dummy;
+        std::priority_queue<ListNode *, vector<ListNode *>, cmp> MinHeap;//从大到小就是小顶堆
+        for (int i = 0; i < lists.size(); ++i) {
+            if (lists[i] != nullptr) {
+                MinHeap.push(lists[i]);
+            }
+        }
+        while (!MinHeap.empty()) {
+            ListNode *tmp = MinHeap.top();
+            MinHeap.pop();
+            cur->next = tmp;
+            cur = cur->next;
+            if (tmp->next)
+                MinHeap.push(tmp->next);
+
+        }
+        return dummy->next;
+
+    }
+
 };
 
 
@@ -81,8 +112,6 @@ void trimRightTrailingSpaces(string &input) {
 
 vector<int> stringToIntegerVector(string input) {
     vector<int> output;
-    trimLeftTrailingSpaces(input);
-    trimRightTrailingSpaces(input);
     input = input.substr(1, input.length() - 2);
     stringstream ss;
     ss.str(input);
@@ -148,14 +177,13 @@ string listNodeToString(ListNode *node) {
 }
 
 int fun() {
-    string line;
-    while (getline(cin, line)) {
+    string line = "[[1,4,5],[1,3,4],[2,6]]";
+
+    for (int i = 0; i < 10000; i++) {
         vector<ListNode *> list = stringToVectorListNode(line);
-
         ListNode *ret = Solution().mergeKLists(list);
-
         string out = listNodeToString(ret);
-        cout << out << endl;
+        //cout << out << endl;
     }
     return 0;
 }

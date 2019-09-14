@@ -13,6 +13,7 @@
 #include <sstream>
 #include <stack>
 #include <map>
+#include <queue>
 
 using std::stack;
 using std::unordered_map;
