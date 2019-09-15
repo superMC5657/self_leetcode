@@ -36,6 +36,7 @@ struct ListNode {
     ListNode *next;
 
     //make me can use ListNode(5)
+    //lambda;
     ListNode(int x) : val(x), next(nullptr) {
     }
 };
