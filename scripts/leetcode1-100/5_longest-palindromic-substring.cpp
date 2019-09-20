@@ -92,6 +92,7 @@ public:
         //该函数的意思是获取从start开始长度为mlen长度的字符串
     }
 
+    //dp
     string longestPalindrome_manacher(string s) {
         int len = s.length();
         if (len < 1) {
@@ -211,7 +212,7 @@ int main() {
         string s = stringToString(line);
         Solution solution;
         string ret = solution.longestPalindrome_manacher(s);
-        cout << "计算次数:"<<solution.m << endl;
+        cout << "计算次数:" << solution.m << endl;
         cout << ret << endl;
     }
     return 0;

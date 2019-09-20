@@ -4,6 +4,7 @@
   !@fileName: 29_divide.cpp
  */
 #include <environment.h>
+#include "function.hpp"
 
 class Solution {
 public:
@@ -61,9 +62,6 @@ public:
     }
 };
 
-int stringToInteger(string input) {
-    return stoi(input);
-}
 
 int fun() {
     string line;

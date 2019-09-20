@@ -42,4 +42,28 @@ struct ListNode {
     }
 };
 
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+};
+
+struct Node {
+    int val;
+    vector<Node *> neighbors;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node *> _neighbors) {
+        val = _val;
+        neighbors = _neighbors;
+    }
+};
+
 #endif //SELF_LEETCODE_ENVIROMENT_H
