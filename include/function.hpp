@@ -97,6 +97,23 @@ string boolToString(bool input) {
     return input ? "True" : "False";
 }
 
+string integerVectorToString(vector<int> list, int length = -1) {
+    if (length == -1) {
+        length = list.size();
+    }
+
+    if (length == 0) {
+        return "[]";
+    }
+
+    string result;
+    for (int index = 0; index < length; index++) {
+        int number = list[index];
+        result += to_string(number) + ", ";
+    }
+    return "[" + result.substr(0, result.length() - 2) + "]";
+}
+
 vector<vector<int>> stringToVectorVectorInteger(string input) {
     trimLeftTrailingSpaces(input);
     trimRightTrailingSpaces(input);
@@ -159,23 +176,6 @@ vector<ListNode *> stringToVectorListNode(string input) {
 
 }
 
-string integerVectorToString(vector<int> list, int length = -1) {
-    if (length == -1) {
-        length = list.size();
-    }
-
-    if (length == 0) {
-        return "[]";
-    }
-
-    string result;
-    for (int index = 0; index < length; index++) {
-        int number = list[index];
-        result += to_string(number) + ", ";
-    }
-    return "[" + result.substr(0, result.length() - 2) + "]";
-}
-
 TreeNode *stringToTreeNode(string input) {
     trimLeftTrailingSpaces(input);
     trimRightTrailingSpaces(input);
@@ -220,6 +220,21 @@ TreeNode *stringToTreeNode(string input) {
         }
     }
     return root;
+}
+
+vector<string> stringToStringVector(string input) {
+    vector<string> output;
+    trimLeftTrailingSpaces(input);
+    trimRightTrailingSpaces(input);
+    input = input.substr(1, input.length() - 2);
+    stringstream ss;
+    ss.str(input);
+    string item;
+    char delim = ',';
+    while (getline(ss, item, delim)) {
+        output.push_back(item);
+    }
+    return output;
 }
 
 #endif //SELF_LEETCODE_FUNCTION_HPP
