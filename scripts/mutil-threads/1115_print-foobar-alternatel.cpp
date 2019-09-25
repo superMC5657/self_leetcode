@@ -15,6 +15,8 @@ private:
 public:
     FooBar(int n) {
         this->n = n;
+        pthread_mutex_init(&one, nullptr);
+        pthread_mutex_init(&two, nullptr);
         pthread_mutex_lock(&two);
     }
 

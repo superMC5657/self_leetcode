@@ -4,7 +4,7 @@
   !@fileName: 0_main.cpp
  */
 
-#include "1116_print-zero-even-odd.cpp"
+#include "1115_print-foobar-alternatel.cpp"
 
 int main() {
     fun();
