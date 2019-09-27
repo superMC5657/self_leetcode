@@ -4,7 +4,7 @@
   !@fileName: 0_main.cpp
  */
 
-#include "1115_print-foobar-alternatel.cpp"
+#include "1195_fizz-buzz-multithreaded.cpp"
 
 int main() {
     fun();

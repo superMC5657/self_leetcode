@@ -252,9 +252,8 @@ string integerVectorVectorToString(vector<vector<int>> &arr, int length = -1) {
     return res;
 }
 
-int *sortInts(int a, int b, int c) {
+void sortInts(int a, int b, int c, int arr[3]) {
     int d;
-    int arr[3];
     if (a > b) {
         d = a;
         a = b;
@@ -273,7 +272,6 @@ int *sortInts(int a, int b, int c) {
     arr[0] = a;
     arr[1] = b;
     arr[2] = c;
-    return arr;
 }
 
 #endif //SELF_LEETCODE_FUNCTION_HPP
