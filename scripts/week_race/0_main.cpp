@@ -4,7 +4,7 @@
   !@fileName: 0_main.cpp
  */
 
-#include "155/ugly-number-iii.cpp"
+#include "155/smallest-string-with-swaps.cpp"
 
 int main() {
     fun();
