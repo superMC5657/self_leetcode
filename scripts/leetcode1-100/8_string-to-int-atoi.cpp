@@ -56,7 +56,7 @@ string stringToString(string input) {
     return result;
 }
 
-int main() {
+int fun() {
     string line;
     while (getline(cin, line)) {
         string str = stringToString(line);

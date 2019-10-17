@@ -115,7 +115,7 @@ int stringToInteger(const string &input) {
     return stoi(input);
 }
 
-int main() {
+int fun() {
     string line;
     while (getline(cin, line)) {
         string s = stringToString(line);

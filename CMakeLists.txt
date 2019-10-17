@@ -7,12 +7,16 @@ include_directories(include)
 #message
 message(STATUS "gcc = ${CMAKE_C_COMPILER} ")
 message(STATUS "g++ = ${CMAKE_CXX_COMPILER}  ")
+message(STATUS "gcc version = ${CMAKE_C_COMPILER_VERSION} ")
+message(STATUS "g++ version = ${CMAKE_CXX_COMPILER_VERSION}")
 message(STATUS "leoox src dir = ${CMAKE_SOURCE_DIR}")
 message(STATUS "leoox binary dir = ${CMAKE_BINARY_DIR}")
 
+#executable
 add_executable(1-100 scripts/leetcode1-100/0_main.cpp)
 add_executable(mutil-threads scripts/mutil-threads/0_main.cpp)
 add_executable(dp scripts/dp/0_main.cpp)
 add_executable(tree scripts/tree/0_main.cpp)
 add_executable(graph scripts/graph/0_main.cpp)
 add_executable(week_race scripts/week_race/0_main.cpp)
+add_executable(hash_map scripts/hash_map/0_main.cpp)

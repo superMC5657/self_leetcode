@@ -26,7 +26,7 @@ int stringToInteger(string input) {
     return stoi(input);
 }
 
-int main() {
+int fun() {
     string line;
     while (getline(cin, line)) {
         int x = stringToInteger(line);

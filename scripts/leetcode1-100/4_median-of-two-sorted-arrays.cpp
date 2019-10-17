@@ -76,7 +76,7 @@ public:
 };
 
 
-int main(int argc, char *argv[]) {
+int fun(int argc, char *argv[]) {
     vector<int> nums1 = {2, 3, 3, 6};
     vector<int> nums2 = {1, 4, 4, 5};
 //    Solution *solution = new Solution();

@@ -139,7 +139,7 @@ string listNodeToString(ListNode *node) {
     return "[" + result.substr(0, result.length() - 2) + "]";
 }
 
-int main() {
+int fun() {
     string line;
     while (getline(cin, line)) {
         // 输入list反序

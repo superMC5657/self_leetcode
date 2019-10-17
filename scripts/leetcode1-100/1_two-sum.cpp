@@ -46,7 +46,7 @@ public:
 
 };
 
-int main() {
+int fun() {
     int a[] = {2, 7, 11, 15};
     int target = 9;
     vector<int> nums(a, a + sizeof(a) / sizeof(int));

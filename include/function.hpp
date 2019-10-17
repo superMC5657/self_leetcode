@@ -136,6 +136,42 @@ vector<vector<int>> stringToVectorVectorInteger(string input) {
     return res;
 }
 
+vector<char> stringToCharVector(string input) {
+    vector<char> output;
+    trimLeftTrailingSpaces(input);
+    trimRightTrailingSpaces(input);
+    input = input.substr(1, input.length() - 2);
+    for (char c : input) {
+        if (c != ',')
+            if (c != '"')
+                output.push_back(c);
+    }
+    return output;
+}
+
+vector<vector<char >> stringToVectorVectorChar(string input) {
+    trimLeftTrailingSpaces(input);
+    trimRightTrailingSpaces(input);
+    input = input.substr(1, input.length() - 2);
+    stringstream ss;
+    ss.str(input);
+    string item;
+    vector<vector<char >> res;
+    char delim = ']';
+    int i = 0;
+    while (getline(ss, item, delim)) {
+        if (i == 0) {
+            vector<char> l = stringToCharVector(item + "]");
+            res.push_back(l);
+        } else {
+            res.push_back(stringToCharVector(item.substr(1, item.size()) + ']'));
+        }
+        i++;
+    }
+    return res;
+
+}
+
 ListNode *stringToListNode(string input) {
     // Generate list from the input
     vector<int> list = stringToIntegerVector(input);
