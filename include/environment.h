@@ -14,6 +14,7 @@
 #include <stack>
 #include <map>
 #include <queue>
+#include <functional>
 
 using std::stack;
 using std::unordered_map;

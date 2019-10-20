@@ -6,6 +6,10 @@
 #ifndef SELF_LEETCODE_FUNCTION_HPP
 #define SELF_LEETCODE_FUNCTION_HPP
 
+#include <assert.h>
+
+#include <utility>
+
 void trimLeftTrailingSpaces(string &input) {
     input.erase(input.begin(), find_if(input.begin(), input.end(), [](int ch) {
         return !isspace(ch);
@@ -169,12 +173,26 @@ vector<vector<char >> stringToVectorVectorChar(string input) {
         i++;
     }
     return res;
+}
 
+string charVectorVectorToString(vector<vector<char >> &input, int length = -1){
+    if (length == -1) {
+        length = input.size();
+    }
+    if (length == 0) {
+        return "[]";
+    }
+    string res = "";
+    for (int i = 0; i < length; i++) {
+        res += charVectorToString(input[i]);
+        res += "\n";
+    }
+    return res;
 }
 
 ListNode *stringToListNode(string input) {
     // Generate list from the input
-    vector<int> list = stringToIntegerVector(input);
+    vector<int> list = stringToIntegerVector(std::move(input));
 
     // Now convert that list into linked list
     ListNode *dummyRoot = new ListNode(0);
@@ -216,7 +234,7 @@ TreeNode *stringToTreeNode(string input) {
     trimLeftTrailingSpaces(input);
     trimRightTrailingSpaces(input);
     input = input.substr(1, input.length() - 2);
-    if (!input.size()) {
+    if (input.empty()) {
         return nullptr;
     }
 
@@ -273,6 +291,22 @@ vector<string> stringToStringVector(string input) {
     return output;
 }
 
+string charVectorToString(vector<char> input,int length = -1){
+    if(length == -1){
+        length = input.size();
+    }
+    if (length == 0){
+        return "[]";
+    }
+
+    string res;
+    for (int index = 0; index<length;index++){
+        res += input[index];
+        res += ", ";
+    }
+    return "[" + res.substr(0, res.length() - 2) + "]";
+}
+
 string integerVectorVectorToString(vector<vector<int>> &arr, int length = -1) {
     if (length == -1) {
         length = arr.size();
@@ -280,7 +314,7 @@ string integerVectorVectorToString(vector<vector<int>> &arr, int length = -1) {
     if (length == 0) {
         return "[]";
     }
-    string res = "";
+    string res;
     for (int i = 0; i < length; i++) {
         res += integerVectorToString(arr[i]);
         res += "\n";
