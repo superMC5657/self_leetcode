@@ -175,14 +175,30 @@ vector<vector<char >> stringToVectorVectorChar(string input) {
     return res;
 }
 
-string charVectorVectorToString(vector<vector<char >> &input, int length = -1){
+string charVectorToString(vector<char> input, int length = -1) {
     if (length == -1) {
         length = input.size();
     }
     if (length == 0) {
         return "[]";
     }
-    string res = "";
+
+    string res;
+    for (int index = 0; index < length; index++) {
+        res += input[index];
+        res += ", ";
+    }
+    return "[" + res.substr(0, res.length() - 2) + "]";
+}
+
+string charVectorVectorToString(vector<vector<char >> &input, int length = -1) {
+    if (length == -1) {
+        length = input.size();
+    }
+    if (length == 0) {
+        return "[]";
+    }
+    string res;
     for (int i = 0; i < length; i++) {
         res += charVectorToString(input[i]);
         res += "\n";
@@ -289,22 +305,6 @@ vector<string> stringToStringVector(string input) {
         output.push_back(item);
     }
     return output;
-}
-
-string charVectorToString(vector<char> input,int length = -1){
-    if(length == -1){
-        length = input.size();
-    }
-    if (length == 0){
-        return "[]";
-    }
-
-    string res;
-    for (int index = 0; index<length;index++){
-        res += input[index];
-        res += ", ";
-    }
-    return "[" + res.substr(0, res.length() - 2) + "]";
 }
 
 string integerVectorVectorToString(vector<vector<int>> &arr, int length = -1) {
