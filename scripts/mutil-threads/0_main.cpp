@@ -4,7 +4,7 @@
   !@fileName: 0_main.cpp
  */
 
-#include "1195_fizz-buzz-multithreaded.cpp"
+#include "1226_the-dining-philosophers.cpp"
 
 int main() {
     fun();
