@@ -94,7 +94,7 @@ public:
 
     void fizz(function<void()> printFizz) {
         while (true) {
-            std::unique_lock <std::mutex> lock(m);
+            std::unique_lock<std::mutex> lock(m);
             while (count <= n && (count % 3 != 0 || count % 5 == 0))
                 cv.wait(lock);
             if (count > n) return;
@@ -106,7 +106,7 @@ public:
 
     void buzz(function<void()> printBuzz) {
         while (true) {
-            std::unique_lock <std::mutex> lock(m);
+            std::unique_lock<std::mutex> lock(m);
             while (count <= n && (count % 5 != 0 || count % 3 == 0))
                 cv.wait(lock);
             if (count > n) return;
@@ -118,7 +118,7 @@ public:
 
     void fizzbuzz(function<void()> printFizzBuzz) {
         while (true) {
-            std::unique_lock <std::mutex> lock(m);
+            std::unique_lock<std::mutex> lock(m);
             while (count <= n && (count % 5 != 0 || count % 3 != 0))
                 cv.wait(lock);
             if (count > n) return;
@@ -130,7 +130,7 @@ public:
 
     void number(function<void(int)> printNumber) {
         while (true) {
-            std::unique_lock <std::mutex> lock(m);
+            std::unique_lock<std::mutex> lock(m);
             while (count <= n && (count % 5 == 0 || count % 3 == 0))
                 cv.wait(lock);
             if (count > n) return;
@@ -160,7 +160,7 @@ void fizzBuzzFunc(FizzBuzz_template *fizzBuzz) {
 
 void numberFunc(FizzBuzz_template *fizzBuzz) {
     fizzBuzz->number([](int i) {
-        cout << i << endl;
+        printf("%d ", i);
     });
 }
 

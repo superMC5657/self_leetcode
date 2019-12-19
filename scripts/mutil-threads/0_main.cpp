@@ -7,6 +7,6 @@
 #include "1226_the-dining-philosophers.cpp"
 
 int main() {
-    fun();
+    fun_self();
     return 0;
 }
