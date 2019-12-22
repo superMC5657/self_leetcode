@@ -4,6 +4,12 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(include)
 
+#add_compile_options(-std=c++11)
+#message(STATUS "optional:-std=c++11")
+
+#set(CMAKE_C_COMPILER  "F:/ProgramData/mingw64/bin/gcc.exe ")
+#set(CMAKE_CXX_COMPILER "F:/ProgramData/mingw64/bin/g++.exe ")
+
 #message
 message(STATUS "gcc = ${CMAKE_C_COMPILER} ")
 message(STATUS "g++ = ${CMAKE_CXX_COMPILER}  ")
@@ -11,6 +17,7 @@ message(STATUS "gcc version = ${CMAKE_C_COMPILER_VERSION} ")
 message(STATUS "g++ version = ${CMAKE_CXX_COMPILER_VERSION}")
 message(STATUS "leoox src dir = ${CMAKE_SOURCE_DIR}")
 message(STATUS "leoox binary dir = ${CMAKE_BINARY_DIR}")
+
 
 #executable
 add_executable(1-100 scripts/leetcode1-100/0_main.cpp)

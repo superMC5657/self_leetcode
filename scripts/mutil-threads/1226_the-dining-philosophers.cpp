@@ -6,6 +6,7 @@
 #include <environment.h>
 #include <function.hpp>
 #include <thread>
+#include <cstdlib>
 
 class DiningPhilosophers_template {
     std::mutex m;
@@ -145,6 +146,7 @@ void putRightFunc(int philosopher) {
 
 
 int fun_self() {
+    system("chcp 65001");
     typedef DiningPhilosophers DPT;
     DPT dPhilosophers;
 

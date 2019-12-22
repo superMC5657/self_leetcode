@@ -15,6 +15,8 @@
 #include <map>
 #include <queue>
 #include <functional>
+#include <mutex>
+#include <condition_variable>
 
 using std::stack;
 using std::unordered_map;
