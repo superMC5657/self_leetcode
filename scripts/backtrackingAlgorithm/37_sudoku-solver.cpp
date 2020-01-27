@@ -6,7 +6,7 @@
 #include <environment.h>
 #include <function.hpp>
 
-class Solution {
+class solution {
 public:
     static void backtrace(vector<vector<char>> &board,
                           vector<vector<int> > &rows,
@@ -65,7 +65,7 @@ int fun() {
     string line;
     while (getline(cin, line)) {
         vector<vector<char>> matrix = stringToVectorVectorChar(line);
-        Solution::solveSudoku(matrix);
+        solution::solveSudoku(matrix);
         string out = charVectorVectorToString(matrix);
         cout << out << endl;
     }

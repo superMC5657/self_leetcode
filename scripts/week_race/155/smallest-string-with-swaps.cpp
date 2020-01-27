@@ -6,7 +6,7 @@
 #include <environment.h>
 #include <function.hpp>
 
-class Solution {
+class solution {
 public:
     vector<int> indices;                                                 //Stores indices of same group.
     vector<bool> visited;
@@ -104,7 +104,7 @@ int fun() {
     string str = "dcab";
     string strPairs = "[[0,3],[1,2]]";
     vector<vector<int>> pairs = stringToVectorVectorInteger(strPairs);
-    string ret = Solution().smallestStringWithSwaps(str, pairs);
+    string ret = solution().smallestStringWithSwaps(str, pairs);
     cout << ret << endl;
     return 0;
 }

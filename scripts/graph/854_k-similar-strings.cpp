@@ -7,7 +7,7 @@
 #include <environment.h>
 #include <function.hpp>
 
-class Solution {
+class solution {
     template<class Iterator>
 
     int DFS(Iterator a_st, Iterator a_ed, Iterator b_st, Iterator b_ed, int used_depth, int max_depth) {
@@ -60,7 +60,7 @@ int fun() {
         getline(cin, line);
         string B = stringToString(line);
 
-        int ret = Solution().kSimilarity(A, B);
+        int ret = solution().kSimilarity(A, B);
 
         string out = to_string(ret);
         cout << out << endl;

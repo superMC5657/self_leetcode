@@ -344,4 +344,29 @@ void sortInts(int a, int b, int c, int arr[3]) {
     arr[2] = c;
 }
 
+string treeNodeToString(TreeNode *root) {
+    if (root == nullptr) {
+        return "[]";
+    }
+
+    string output;
+    std::queue<TreeNode *> q;
+    q.push(root);
+    while (!q.empty()) {
+        TreeNode *node = q.front();
+        q.pop();
+
+        if (node == nullptr) {
+            output += "null, ";
+            continue;
+        }
+
+        output += to_string(node->val) + ", ";
+        q.push(node->left);
+        q.push(node->right);
+    }
+    return "[" + output.substr(0, output.length() - 2) + "]";
+}
+
+
 #endif //SELF_LEETCODE_FUNCTION_HPP

@@ -7,7 +7,7 @@
 #include <function.hpp>
 
 
-class Solution {
+class solution {
 public:
     int maximalRectangle(vector<vector<char>> &matrix) {
         if (!matrix.size()) return 0;
@@ -53,7 +53,7 @@ int fun() {
     while (getline(cin, line)) {
         vector<vector<char>> matrix = stringToVectorVectorChar(line);
 
-        int ret = Solution().maximalRectangle(matrix);
+        int ret = solution().maximalRectangle(matrix);
 
         string out = to_string(ret);
         cout << out << endl;

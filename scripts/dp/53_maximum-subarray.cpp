@@ -6,7 +6,7 @@
 #include <environment.h>
 #include <function.hpp>
 
-class Solution {
+class solution {
 public:
     int maxSubArray(vector<int> &nums) {
         int ans = nums[0];
@@ -27,7 +27,7 @@ int fun() {
     while (getline(cin, line)) {
         vector<int> arr = stringToIntegerVector(line);
 
-        int ret = Solution().maxSubArray(arr);
+        int ret = solution().maxSubArray(arr);
 
         string out = to_string(ret);
         cout << out << endl;
